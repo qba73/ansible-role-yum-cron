@@ -1,0 +1,14 @@
+galaxy_info:
+  author: Jakub Jarosz
+  description: Ansible role for installing and configuring yum-cron
+  min_ansible_version: 2.3
+
+  platforms:
+  - name: RedHat
+    versions:
+    - 7.4
+    - 7.3
+    - 7.2
+    - 7.1
+    - 7.0
+

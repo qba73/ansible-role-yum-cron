@@ -1,0 +1,26 @@
+---
+- name: install yum-cron
+  yum: name=yum-cron state=present
+
+- name: configure yum-cron
+  template:
+    src: yum-cron.conf.j2
+    dest: /etc/yum/yum-cron.conf
+    owner: root
+    group: root
+    mode: 0644
+
+- name: configure yum-cron-hourly
+  template:
+    src: yum-cron-hourly.conf.j2
+    dest: /etc/yum/yum-cron-hourly.conf
+    owner: root
+    group: root
+    mode: 0644
+
+- name: start and enable yum-cron service
+  systemd:
+    service: yum-cron
+    state: "{{ service_state }}"
+    enabled: "{{ service_enabled }}"
+
